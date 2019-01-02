@@ -1,0 +1,9 @@
+<h1>Invoices</h1>
+ 
+<div *ngFor="let invoice of invoices | async" style="width: 300px;">
+  <cinvoice-details [invoice]='invoice'></invoice-details>
+</div>
+ 
+<div>
+  <button type="button" class="button btn-danger" (click)='deleteInvoices()'>Delete All</button>
+</div>
