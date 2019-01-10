@@ -1,0 +1,39 @@
+ <h3>Create Invoice</h3>
+
+   <form class="form-group">
+    <mat-form-field class="form" >
+      <input matInput placeholder="Amount Of money" type ="number" ngModel required >
+    </mat-form-field>
+
+     <mat-form-field class="form">
+      <input matInput placeholder="VAT" type ="number" ngModel required>
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput [matDatepicker]="picker" placeholder="Choose a date" >
+      <mat-datepicker-toggle matSuffix [for]="picker" ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+
+    <mat-form-field class="form">
+      <input matInput placeholder="Limit" type ="number" ngModel required > 
+    </mat-form-field>
+
+    <mat-form-field class="form">
+      <input matInput placeholder="Charged Period" type ="number" ngModel required>
+    </mat-form-field> 
+
+</form>
+
+<mat-form-field>
+    <mat-select placeholder="Type of Invoices">
+      <mat-option *ngFor="let invoice of invoices" [value]="invoice.id">
+        {{invoice.type}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-raised-button (click)="openDialog()" color="primary">Add</button> 
+  
+
+ 
