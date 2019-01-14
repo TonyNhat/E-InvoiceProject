@@ -3,13 +3,21 @@
 <div style="width: 300px;">
   <form (ngSubmit)="onSubmit()">
 
-    <div class="form-group">
+    <!-- <div class="form-group">
       <label for="type">Type</label>
       <input type="text" class="form-control" id="type" required [(ngModel)]="type" name="type">
-    </div>
+    </div> -->
  
+    <mat-form-field>
+      <mat-select placeholder="Type of Invoices">
+        <mat-option *ngFor="let invoice of arrayinvoice" [value]="invoice.id">
+          {{invoice.type}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
     <div class="btn-group">
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" mat-raised-button color="accent">Submit</button>
     </div>
   </form>
 </div>

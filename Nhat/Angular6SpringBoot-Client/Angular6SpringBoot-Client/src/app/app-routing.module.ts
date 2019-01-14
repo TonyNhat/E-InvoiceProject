@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { CustomersListComponent } from './customers-list/customers-list.component';
-import { CreateCustomerComponent } from './create-customer/create-customer.component';
-import { SearchCustomersComponent } from './search-customers/search-customers.component';
-
 import { InvoiceDetailsComponent } from './invoice-details/invoice-details.component';
 import { CreateInvoiceComponent } from './create-invoice/create-invoice.component';
 import { SearchInvoicesComponent } from './search-invoices/search-invoices.component';

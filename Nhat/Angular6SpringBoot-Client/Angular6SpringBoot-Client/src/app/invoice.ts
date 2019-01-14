@@ -3,7 +3,7 @@ export class Invoice {
     amount: number;
     VAT: number;
     createdat: string;
-    userid: number;
+    iduser: number;
     limit: number;
     chargedperiod: number;
     type: string;

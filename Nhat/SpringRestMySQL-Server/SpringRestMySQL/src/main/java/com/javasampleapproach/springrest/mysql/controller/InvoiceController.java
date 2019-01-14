@@ -27,6 +27,7 @@ import com.javasampleapproach.springrest.mysql.repo.InvoiceRepository;
 public class InvoiceController {
 	@Autowired
 	InvoiceRepository repository;
+	
 	// GET all invoices
 	@GetMapping("/invoices")
 	public List<Invoice> getAllInvoices() {
@@ -37,6 +38,7 @@ public class InvoiceController {
  
 		return invoices;
 	}
+	
 	//POST create invoices
 	@PostMapping(value = "/invoices/create")
 	public Invoice postInvoice(@RequestBody Invoice invoice) {
@@ -52,6 +54,7 @@ public class InvoiceController {
 				));
 		return _invoice;
 	}
+	
 	//DELETE invoice by id
 	@DeleteMapping("/invoices/{id}")
 	public ResponseEntity<String> deleteInvoice(@PathVariable("id") long id) {
@@ -70,13 +73,15 @@ public class InvoiceController {
  
 		return new ResponseEntity<>("All invoices have been deleted!", HttpStatus.OK);
 	}
-	//GET invoices by type
-	@GetMapping(value = "invoices/type/{type}")
-	public List<Invoice> findByType(@PathVariable String type) {
+	
+	//GET invoices by amount
+	@GetMapping(value = "invoices/amount/{amount}")
+	public List<Invoice> findByAmount(@PathVariable float amount) {
  
-		List<Invoice> invoices = repository.findByType(type);
+		List<Invoice> invoices = repository.findByAmount(amount);
 		return invoices;
 	}
+	
 	//PUT update invoices by id
 	@PutMapping("/invoices/{id}")
 	public ResponseEntity<Invoice> updateInvoice(@PathVariable("id") long id, @RequestBody Invoice invoice) {

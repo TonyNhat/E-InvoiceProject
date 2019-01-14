@@ -26,5 +26,10 @@ export class SearchInvoicesComponent implements OnInit {
   onSubmit() {
     this.searchInvoices();
   }
-
+  arrayinvoice = [
+    { id: 1, type: 'Gas' },
+    { id: 2, type: 'Water' },
+    { id: 3, type: 'Internet' },
+    { id: 4, type: 'Electric' },
+  ]
 }

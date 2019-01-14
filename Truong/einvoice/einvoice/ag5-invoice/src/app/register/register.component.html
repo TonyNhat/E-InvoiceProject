@@ -1,0 +1,171 @@
+<!-- <div *ngIf="isSignedUp; else signupForm">
+  Your registration is successful. Please login!
+</div>
+
+<ng-template #signupForm>
+  <div class="row col-sm-6" style="max-width:350px;">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      <div class="form-group">
+        <label for="name">Your name</label>
+        <input type="text" class="form-control" name="name" [(ngModel)]="form.name" #name="ngModel" required />
+        <div *ngIf="f.submitted && name.invalid">
+          <div *ngIf="name?.errors.required">Name is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required />
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username?.errors.required">Username is required</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required email />
+        <div *ngIf="f.submitted && email.invalid">
+          <div *ngIf="email?.errors.required">Email is required</div>
+          <div *ngIf="email?.errors.email">Email must be a valid email address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+          required minlength="6" />
+        <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password?.errors.required">Password is required</div>
+          <div *ngIf="password?.errors.minlength">Password must be at least 6 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="address">Address</label>
+        <input type="text" class="form-control" name="address" [(ngModel)]="form.address" #address="ngModel"/>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input type="text" class="form-control" name="phone" [(ngModel)]="form.phone" #phone="ngModel"
+        required minlength="10" maxlength="11"/>
+        <div *ngIf="f.submitted && phone.invalid">
+          <div *ngIf="phone?.errors.required">Phone is required</div>
+          <div *ngIf="phone?.errors.minlength">Phone must be at least 10 characters</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button class="btn btn-primary">Register</button>
+        <div *ngIf="f.submitted && isSignUpFailed" class="alert alert-warning">
+          Signup failed!<br/>{{errorMessage}}
+        </div>
+      </div>
+    </form>
+  </div>
+</ng-template> -->
+
+
+
+<!----------------------------ddd-------------------------------->
+<div *ngIf="isSignedUp; else signupForm">
+  Your registration is successful. Please login!
+</div>
+
+
+<ng-template #signupForm>
+<div class="container">
+
+  <div class="row">
+      <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+      <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <label for="username"></label>
+        <input type="text" class="form-control input-lg" name="username" [(ngModel)]="form.username" #username="ngModel"
+          required placeholder="Username"/>
+        <div *ngIf="f.submitted && username.invalid">
+          <div *ngIf="username?.errors.required" class="text-danger">Username is required</div>
+        </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="form-group">
+                <label for="password"></label>
+                <input type="password" class="form-control input-lg" name="password" [(ngModel)]="form.password" #password="ngModel"
+                  required minlength="6" placeholder="Password"/>
+                <div *ngIf="f.submitted && password.invalid">
+                  <div *ngIf="password?.errors.required" class="text-danger">Password is required</div>
+                  <div *ngIf="password?.errors.minlength" class="text-danger">Password must be at least 6 characters</div>
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="form-group">
+            <label for="name"></label>
+            <input type="text" class="form-control input-lg" placeholder="Name" name="name" [(ngModel)]="form.name" #name="ngModel" required />
+            <div *ngIf="f.submitted && name.invalid">
+              <div *ngIf="name?.errors.required" class="text-danger">Name is required</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="email"></label>
+            <input type="text" class="form-control input-lg" name="email" [(ngModel)]="form.email" #email="ngModel" required email placeholder="Email"/>
+            <div *ngIf="f.submitted && email.invalid" >
+              <div *ngIf="email?.errors.required" class="text-danger">Email is required</div>
+              <div *ngIf="email?.errors.email" class="text-danger">Email must be a valid email address</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="phone"></label>
+            <input type="text" class="form-control input-lg" name="phone" [(ngModel)]="form.phone" #phone="ngModel"
+            required minlength="10" maxlength="11" placeholder="Phone number"/>
+            <div *ngIf="f.submitted && phone.invalid">
+              <div *ngIf="phone?.errors.required" class="text-danger">Phone is required</div>
+              <div *ngIf="phone?.errors.minlength" class="text-danger">Phone must be at least 10 characters</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="address"></label>
+            <input type="text" class="form-control input-lg" name="address" [(ngModel)]="form.address" #address="ngModel" placeholder="Address"/>
+          </div>
+        <div class="row">
+          <div class="col-xs-8 col-sm-9 col-md-9">
+             By clicking <strong class="label label-primary">Register</strong>, you agree to the <a href="#" data-toggle="modal" data-target="#t_and_c_m">Terms and Conditions</a> set out by this site, including our Cookie Use.
+          </div>
+        </div>
+
+        <hr class="colorgraph">
+        <div class="row">
+          <div class="col-xs-12 col-md-6"><input type="submit" value="Register" class="btn btn-primary btn-block btn-lg" tabindex="7"></div>
+          <div class="col-xs-12 col-md-6"><a routerLink="/auth/login" class="btn btn-success btn-block btn-lg">Sign In</a></div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <!-- Modal -->
+  <div class="modal fade" id="t_and_c_m" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+          <h4 class="modal-title" id="myModalLabel">Terms & Conditions</h4>
+        </div>
+        <div class="modal-body">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique, itaque, modi, aliquam nostrum at sapiente consequuntur natus odio reiciendis perferendis rem nisi tempore possimus ipsa porro delectus quidem dolorem ad.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" data-dismiss="modal">I Agree</button>
+        </div>
+      </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+  </div><!-- /.modal -->
+  </div>
+
+</ng-template>

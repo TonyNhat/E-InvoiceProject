@@ -1,0 +1,55 @@
+<!-- <div *ngIf="user">
+  <br>
+  <div>
+    <label>ID: </label> {{user.id}}
+  </div>
+  <div>
+    <label>Username: </label> {{user.username}}
+  </div>
+  <div>
+    <label>Password: </label> {{user.password}}
+  </div>
+  <div>
+    <label>Name: </label> {{user.name}}
+  </div>
+  <div>
+    <label>Email: </label> {{user.email}}
+  </div>
+  <div>
+    <label>Phone: </label> {{user.phone}}
+  </div>
+  <div>
+    <label>Address: </label> {{user.address}}
+  </div>
+  <span class="button is-small btn-primary" *ngIf='user.active' (click)='updateActive(false)'>Inactive</span>
+  <span class="button is-small btn-primary" *ngIf='!user.active' (click)='updateActive(true)'>Active</span>
+
+  <span class="button is-small btn-danger" (click)='deleteUser()'>Delete</span>
+
+  <hr>
+</div> -->
+<!-- <div *ngIf="user">
+
+  <tr>
+    <th scope="row">{{user.id}}</th>
+    <td>{{user.name}}</td>
+    <td>{{user.email}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.address}}</td>
+    <td>
+        <span class="button is-small btn-primary" *ngIf='user.active' (click)='updateActive(false)'>Inactive</span>
+        <span class="button is-small btn-primary" *ngIf='!user.active' (click)='updateActive(true)'>Active</span>
+    </td>
+    <td>
+        <span class="button is-small btn-danger" (click)='deleteUser()'>Delete</span>
+    </td>
+
+  </tr>
+
+
+</div> -->
+
+<div *ngFor="let user of info">
+  {{user.info}}
+</div>
+
