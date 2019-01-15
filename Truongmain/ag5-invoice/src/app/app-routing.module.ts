@@ -1,3 +1,4 @@
+import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -29,6 +30,10 @@ const routes: Routes = [
     {
         path: 'auth/login',
         component: LoginComponent
+    },
+    {
+        path: 'invoices',
+        component: ListInvoiceComponent
     },
     {
         path: 'signup',

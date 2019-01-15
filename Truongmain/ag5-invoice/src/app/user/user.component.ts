@@ -1,3 +1,5 @@
+import { TokenStorageService } from './../auth/token-storage.service';
+import { InvoiceServiceService } from './../services/invoice-service.service';
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../services/user.service';
 
@@ -9,17 +11,17 @@ import { UserService } from '../services/user.service';
 export class UserComponent implements OnInit {
   board: string;
   errorMessage: string;
-
-  constructor(private userService: UserService) { }
+  info: any;
+  username: string;
+  constructor(private userService: UserService, private invoiceService: InvoiceServiceService, private tokenStroge: TokenStorageService) { }
 
   ngOnInit() {
-    this.userService.getUserBoard().subscribe(
-      data => {
-        this.board = data;
-      },
-      error => {
-        this.errorMessage = `${error.status}: ${JSON.parse(error.error).message}`;
-      }
-    );
+    this.username = this.tokenStroge.getUsername();
+
+    this.invoiceService.getInvoiceByusername(this.username);
+  }
+
+  reloadData(id: number) {
+    this.invoiceService.getInvoiceByIdUser(id);
   }
 }

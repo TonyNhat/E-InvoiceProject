@@ -44,6 +44,9 @@
         <li *ngIf="authority === 'admin'" class="nav-item">
           <a routerLink="user-list">Users</a>
         </li>
+        <li *ngIf="authority === 'admin'" class="nav-item">
+          <a routerLink="invoices">Invoices</a>
+        </li>
         <li *ngIf="authority === 'user'" class="nav-item">
           <a routerLink="user">Home</a>
         </li>

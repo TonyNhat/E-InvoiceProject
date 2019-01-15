@@ -1,3 +1,43 @@
-<p>
-  list-invoice works!
-</p>
+<a href="signup" class="btn btn-primary">Create</a>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col" *ngFor="let head of headElements">{{head}}</th>
+    </tr>
+  </thead>
+
+  <tbody *ngFor="let invoice of invoices| async">
+    <tr>
+    <th scope="row">{{invoice.id}}</th>
+    <td>{{invoice.date | date: 'dd'}} / {{invoice.date | date: 'MM'}} / {{invoice.date | date: 'yyyy'}}</td>
+    <td>{{invoice.i_type}}</td>
+    <td>{{invoice.vat}}</td>
+    <td>{{invoice.grandTotal}}</td>
+    <td>{{invoice.total}}</td>
+    <td>{{invoice.idUser}}</td>
+
+    <!-- <td>
+        <span class="btn is-small btn-danger" *ngIf='user.active'
+        (click)='update(user.id, user.username,user.password, user.name, user.email, user.phone, user.address ,false)'>Inactive</span>
+        <span class="btn is-small btn-success" *ngIf='!user.active'
+        (click)='update(user.id, user.username,user.password, user.name, user.email, user.phone, user.address ,true)'>Active</span>
+    </td>
+     <td>
+      <span class="button " (click)='update(user.id)'>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </span>
+  </td> -->
+    <!-- <td>
+        <span class="btn btn-danger" (click)='delete(user.id)'>
+            Delete
+        </span>
+    </td> -->
+
+  </tr>
+  </tbody>
+
+</table>
+{{errorMessage}}
+  <!-- <div>
+    <button type="button" class="btn btn-danger" (click)='deleteUsers()'>Delete All</button>
+  </div> -->
