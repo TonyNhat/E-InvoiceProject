@@ -61,7 +61,7 @@ public class Invoice implements Serializable{
 
 
 	@JsonIgnore
-	@JoinColumn(name = "id_user", referencedColumnName = "id")
+	@JoinColumn(name = "id_user", referencedColumnName = "username")
 	@ManyToOne(optional = false)
 	private User idUser;
 	

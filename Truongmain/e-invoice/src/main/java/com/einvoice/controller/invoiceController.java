@@ -51,21 +51,26 @@ public class invoiceController {
 		List<Invoice> _invoice = new ArrayList<>();
 		
 		repository.findAll().forEach(_invoice::add);
+		return _invoice;
+	}
+	
+	@GetMapping("/invoices/get/{id}")
+	public Optional<Invoice> getInvoiceByIdUser(@PathVariable("id") long id, @RequestBody User user){
+		log.info("get invoice with user [id =" +user.getId()+ "], [name =" + user.getName() + "]");
+		
+		Optional<Invoice> _invoice = repository.findById(id);
 		
 		return _invoice;
 	}
 	
-	@GetMapping("/invoices/get/{idUser}")
-	public List<Invoice> getInvoiceByIdUser(@PathVariable("idUser") User idUser){
-		log.info("get invoice with user [id =" +idUser.getId()+ "], [name =" + idUser.getName() + "]");
+	@GetMapping("/invoices/uget/{user}")
+	public List<Invoice> getInvoiceByUsername(@PathVariable("user") String user, @RequestBody User users){
+		log.info("get invoice of user");
 		
-		List<Invoice> _invoice = repository.findByIdUser(idUser);
-		if(_invoice != null) {
-			return _invoice;
-		}
-		return null;
+		List<Invoice> _invoice = repository.findByUsername(user);
+		
+		return _invoice;
 	}
-	
 
 
 	@GetMapping("/invoices/create")

@@ -2,6 +2,7 @@ package com.einvoice.repository;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,8 +16,10 @@ import com.einvoice.model.User;
 
 
 public interface InvoiceRepository extends CrudRepository<Invoice, Long>, JpaRepository<Invoice, Long> {
+	Optional<Invoice> findById(Long id);
+	
 	@Query(value = "SELECT * FROM invoice u WHERE u.id_user = ?1", nativeQuery = true)
-	List<Invoice> findByIdUser(User id);
+	List<Invoice> findByUsername(String username);
 	
 	Page<Invoice> findAll(Pageable pageable);
 	
