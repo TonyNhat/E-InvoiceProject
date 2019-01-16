@@ -72,8 +72,8 @@ public class Invoice implements Serializable{
 		this.id = id;
 	}
 
-	public Invoice(Long id, Date date, String i_type, float vat, BigDecimal total, BigDecimal grandTotal) {
-		this.id = id;
+	public Invoice( Date date, String i_type, float vat, BigDecimal total, BigDecimal grandTotal) {
+		//this.id = id;
 		this.date = date;
 		this.i_type = i_type;
 		this.vat = vat;

@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -27,8 +28,6 @@ import com.einvoice.model.Invoice;
 import com.einvoice.model.User;
 import com.einvoice.repository.InvoiceRepository;
 import com.einvoice.repository.UserRepository;
-
-
 
 
 @CrossOrigin(origins = "*")
@@ -72,14 +71,36 @@ public class invoiceController {
 		return _invoice;
 	}
 
+	
+	//tao invoice ko co username
+	@PostMapping(value = "/invoices/create")
+	public Invoice postInvoice(@RequestBody Invoice invoice) {
 
-	@GetMapping("/invoices/create")
-	public String getID(){
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		String id = auth.getName();
-		
-		
-		return id;
+		Invoice _invoice = repository.save(new Invoice(
+				invoice.getDate(),
+				invoice.getI_type(),
+				invoice.getVat(),
+				invoice.getTotal(),
+				invoice.getGrandTotal()
+				));
+		return _invoice;		
 	}
+
+//	@RequestMapping(value = "/invoice/create", method = RequestMethod.POST)
+//	public ResponseEntity<Void> createInvoice(@RequestBody Invoice invoice, UriComponentsBuilder ucBuilder) {
+//		log.info("Creating Invoice " + invoice.getId());
+//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+//		String username = auth.getName();	
+//		Users user = new Users();
+//		user = userService.findByName(username);	
+//		log.info("Type invoice" + invoice.getIdType());	
+//		Customer cus = new Customer();
+//		cus = customerService.findByUser(user);	
+//		invoice.setIdCustomer(cus);
+//		invoiceService.saveInvoice(invoice);
+//		HttpHeaders headers = new HttpHeaders();
+//		headers.setLocation(ucBuilder.path("/invoice/{id}").buildAndExpand(invoice.getId()).toUri());
+//		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//	}
 	
 }
