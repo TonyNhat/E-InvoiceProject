@@ -70,12 +70,9 @@ public class invoiceController {
 		
 		return _invoice;
 	}
-
 	
-	//tao invoice ko co username
 	@PostMapping(value = "/invoices/create")
 	public Invoice postInvoice(@RequestBody Invoice invoice) {
-
 		Invoice _invoice = repository.save(new Invoice(
 				invoice.getDate(),
 				invoice.getI_type(),
@@ -86,21 +83,11 @@ public class invoiceController {
 		return _invoice;		
 	}
 
-//	@RequestMapping(value = "/invoice/create", method = RequestMethod.POST)
-//	public ResponseEntity<Void> createInvoice(@RequestBody Invoice invoice, UriComponentsBuilder ucBuilder) {
-//		log.info("Creating Invoice " + invoice.getId());
-//		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-//		String username = auth.getName();	
-//		Users user = new Users();
-//		user = userService.findByName(username);	
-//		log.info("Type invoice" + invoice.getIdType());	
-//		Customer cus = new Customer();
-//		cus = customerService.findByUser(user);	
-//		invoice.setIdCustomer(cus);
-//		invoiceService.saveInvoice(invoice);
-//		HttpHeaders headers = new HttpHeaders();
-//		headers.setLocation(ucBuilder.path("/invoice/{id}").buildAndExpand(invoice.getId()).toUri());
-//		return new ResponseEntity<Void>(headers, HttpStatus.CREATED);
+//	@PostMapping(value = "/invoices/create")
+//	public Invoice postInvoice(@RequestBody Invoice invoice) {
+//		repository.save(invoice);
+//		return invoice;
+//	
 //	}
-	
+
 }
