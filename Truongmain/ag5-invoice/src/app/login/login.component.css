@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Major+Mono+Display|Montserrat|Special+Elite');
+
 .ff{
   background-image: url(src\assets\img\bg-2.jpg);
   width: 100%;
@@ -37,4 +39,25 @@
 
 .btn:hover{
   transition: all 0.3s;
+}
+
+.logged {
+  background-image: url(src\assets\img\login-required.jpg);
+  background-size: cover;
+  width: 100%;
+  height: 600px;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.head {
+  position: absolute;
+  top: 80px;
+  left: 32%;
+}
+
+.head h1{
+  font-family: 'Special Elite', cursive;
+  color: white;
+  letter-spacing: 3px;
 }
