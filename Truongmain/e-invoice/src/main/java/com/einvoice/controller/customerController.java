@@ -50,14 +50,7 @@ public class customerController {
 	@PostMapping(value = "/users/create")
 	public User postCustomer(@RequestBody User user) {
 
-		User _user = userRepository.save(new User(
-				user.getUsername(), 
-				user.getPassword(), 
-				user.getName(), 
-				user.getEmail(), 
-				user.getPhone(), 
-				user.getAddress()
-				));
+		User _user = userRepository.save(new User(user.getUsername(), user.getPassword(), user.getName(), user.getEmail(), user.getPhone(), user.getAddress()));
 		return _user;
 	}
 

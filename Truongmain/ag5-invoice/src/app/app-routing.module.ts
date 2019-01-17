@@ -1,3 +1,4 @@
+import { CreateInvoiceComponent } from './create-invoice/create-invoice.component';
 import { ListInvoiceComponent } from './list-invoice/list-invoice.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { NgModule } from '@angular/core';
@@ -22,6 +23,10 @@ const routes: Routes = [
     {
         path: 'admin',
         component: AdminComponent
+    },
+    {
+        path: 'create-invoice',
+        component: CreateInvoiceComponent
     },
     {
         path: 'user-details',

@@ -1,31 +1,46 @@
-<h4>Content from Server</h4>
-<table class="table">
-  <thead class="thead-dark">
+<a href="create-invoice" class="btn btn-primary">Create invoice</a>
+<table class="table table-striped">
+  <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">#ID</th>
+      <th scope="col">Date.</th>
+      <th scope="col">Type</th>
+      <th scope="col">Grand</th>
+      <th scope="col">Total</th>
     </tr>
   </thead>
-  <tbody>
+
+  <tbody *ngFor="let user of users |async">
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    <th scope="row">{{user.id}}</th>
+    <td>{{user.date | date: 'dd'}} / {{user.date | date: 'MM'}} / {{user.date | date: 'yyyy'}}</td>
+    <td>{{user.i_type}}</td>
+    <td>{{user.vat}}</td>
+    <td>{{user.grandTotal}}</td>
+    <td>{{user.total}}</td>
+
+    <!-- <td>
+        <span class="btn is-small btn-danger" *ngIf='user.active'
+        (click)='update(user.id, user.username,user.password, user.name, user.email, user.phone, user.address ,false)'>Inactive</span>
+        <span class="btn is-small btn-success" *ngIf='!user.active'
+        (click)='update(user.id, user.username,user.password, user.name, user.email, user.phone, user.address ,true)'>Active</span>
+    </td>
+     <td>
+      <span class="button " (click)='update(user.id)'>
+          <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
+      </span>
+  </td> -->
+    <!-- <td>
+        <span class="btn btn-danger" (click)='delete(user.id)'>
+            Delete
+        </span>
+    </td> -->
+
+  </tr>
   </tbody>
+
 </table>
+{{errorMessage}}
+  <!-- <div>
+    <button type="button" class="btn btn-danger" (click)='deleteuser()'>Delete All</button>
+  </div> -->

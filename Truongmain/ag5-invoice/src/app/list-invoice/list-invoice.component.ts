@@ -10,7 +10,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListInvoiceComponent implements OnInit {
 
-  headElements = ['#ID', 'Date', 'Type', 'VAT', 'Grand', 'Total', 'ID User'];
+  headElements = ['#ID', 'Date', 'Type', 'VAT', 'Grand', 'Total'];
   errorMessage: string;
 
   invoices: Observable<Invoice[]>;

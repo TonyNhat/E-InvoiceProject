@@ -16,6 +16,6 @@ public interface UserRepository extends  CrudRepository<User, Long>, JpaReposito
 	Boolean existsByUsername(String username);
 	Boolean existsByEmail(String email);
 	
-	@Query(value = "select * from users u where u.username = ?1", nativeQuery = true)
-	User findByUsernames(String username);
+	@Query(value = "SELECT * FROM users u WHERE u.username = ?1", nativeQuery = true)
+	User findByUserName(String username);
 }

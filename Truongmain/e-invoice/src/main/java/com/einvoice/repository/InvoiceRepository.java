@@ -16,10 +16,10 @@ import com.einvoice.model.User;
 
 
 public interface InvoiceRepository extends CrudRepository<Invoice, Long>, JpaRepository<Invoice, Long> {
-	Optional<Invoice> findById(Long id);
+	List<Invoice> findById(long id);
 	
 	@Query(value = "SELECT * FROM invoice u WHERE u.id_user = ?1", nativeQuery = true)
-	List<Invoice> findByUsername(String username);
+	List<Invoice> findByName(String username);
 	
 	Page<Invoice> findAll(Pageable pageable);
 	

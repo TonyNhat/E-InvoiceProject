@@ -2,8 +2,8 @@
   Logged in as {{roles}}.
 </div>
 
-<ng-template #loggedOut>
-  <div class="row col-sm-6" style="max-width:350px">
+<ng-template #loggedOut class="ff">
+  <div class="row col-sm-6 all" style="max-width:350px">
     <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
       <div class="form-group">
         <label for="username">Username</label>

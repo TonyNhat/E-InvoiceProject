@@ -1,4 +1,40 @@
-.form {
-  background-image: url(/src/assets/img/blue-gradient-wallpapers-55319-8983206.jpg);
-  background-attachment: fixed;
+.ff{
+  background-image: url(src\assets\img\bg-2.jpg);
+  width: 100%;
+  height: 560px;
+  background-repeat: no-repeat;
+}
+
+.bg-1{
+  background-image: url(src\assets\img\bg-2.jpg);
+  width: 100%;
+  height: 560px;
+  background-repeat: no-repeat;
+}
+
+.all {
+  border: 1px solid black;
+  padding: 60px 50px;
+  margin-left: 36%;
+  margin-top: 5%;
+  color: black;
+}
+
+.all label {
+  font-family: 'Rubik', sans-serif;
+  letter-spacing: 2px;
+}
+
+.all p{
+  font-family: 'Rubik', sans-serif;
+}
+
+.btn{
+  font-family: 'Coiny', cursive;
+  letter-spacing: 2px;
+  padding: 7px 30px;
+}
+
+.btn:hover{
+  transition: all 0.3s;
 }
