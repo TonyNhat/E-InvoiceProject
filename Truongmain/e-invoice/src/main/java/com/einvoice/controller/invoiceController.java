@@ -84,11 +84,9 @@ public class invoiceController {
 		us = userRepository.findByUserName(username);
 		
 		in.setIdUser(us);
-		
-		
+				
 		Invoice _in = repository.save(
-				new Invoice(in.getDate(), in.getI_type(), in.getVat(), in.getTotal(), in.getGrandTotal(), in.getIdUser()));
-		
+				new Invoice(in.getDate(), in.getI_type(), in.getVat(), in.getTotal(), in.getGrandTotal(), in.getIdUser()));	
 		return _in;
 	}
 	
