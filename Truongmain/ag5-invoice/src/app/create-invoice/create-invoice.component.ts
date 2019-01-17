@@ -15,6 +15,7 @@ export class CreateInvoiceComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   username: string;
+  percent: number;
 
   constructor(private tokenStroge: TokenStorageService, private invoiceServices: InvoiceServiceService) { }
 
@@ -24,6 +25,8 @@ export class CreateInvoiceComponent implements OnInit {
   onSubmit() {
     this.form.username = this.tokenStroge.getUsername();
     console.log(this.form);
+    this.form.vat = 10;
+    this.percent = (this.form.total / this.form.vat);
 
     this.invoiceInfo = new Invoice(
       this.form.date,
